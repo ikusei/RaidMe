@@ -17,5 +17,5 @@
 
 $(document).ready(function() {
 	$('p.notice').fadeOut(5000);
-	$('p.alert').fadeOut(10000);
+	$('p.alert').fadeOut(5000);
 });	
