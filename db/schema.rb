@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128102136) do
+ActiveRecord::Schema.define(:version => 20121205081227) do
+
+  create_table "fridge_friends", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "fridges", :force => true do |t|
     t.integer  "product_id"
@@ -45,6 +52,9 @@ ActiveRecord::Schema.define(:version => 20121128102136) do
     t.string   "username"
     t.string   "provider"
     t.string   "uid"
+    t.integer  "roomnumber"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

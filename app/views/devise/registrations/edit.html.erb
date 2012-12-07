@@ -6,6 +6,15 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
 
+  <div><%= f.label :first_name %><br />
+  <%= f.text_field :first_name %></div>
+
+  <div><%= f.label :last_name %><br />
+  <%= f.text_field :last_name %></div>
+
+  <div><%= f.label :room_number %><br />
+  <%= f.text_field :roomnumber %></div>
+
   <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
   <%= f.password_field :password, :autocomplete => "off" %></div>
 
@@ -14,6 +23,14 @@
 
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
+
+  <div>Produkte</div>
+  <div><% if @products.present? %>
+         <% @products.each do |product| %>
+         <%= product.name %>
+         <% end %>
+       <% end %>    
+  </div>
 
   <div><%= f.submit "Update" %></div>
 <% end %>

@@ -5,7 +5,6 @@ gem 'rails', '3.2.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 
 gem 'devise'
 gem 'omniauth-facebook', '<= 1.4.0'
@@ -26,6 +25,14 @@ end
 gem 'jquery-rails'
 
 gem 'gravatar_image_tag', '1.0.0.pre2'
+
+group :development, :test do
+  gem 'sqlite3-ruby', :require => 'sqlite3'
+end
+
+group :production do
+  gem 'mysql2'
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -5,4 +5,8 @@ module UsersHelper
 	                                            :class => 'gravatar',
 	                                            :gravatar => options)
 	end
+
+	def get_friend
+	  return FridgeFriend.find(:first, :conditions => { :user_id => current_user.id })
+	end
 end

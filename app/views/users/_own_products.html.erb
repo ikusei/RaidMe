@@ -1,0 +1,11 @@
+<div>
+  <% if @fridges.present? %>
+    <%= @fridges.each do |fridge| %>
+	  <% if fridge.user_id == @user.id %>
+	    <%= fridge.product.name %>
+	    <%= fridge.product.marke %>
+	    <%= fridge.product.ort %>
+	  <% end %>
+	<% end %>
+  <% end %>
+</div>

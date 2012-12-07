@@ -1,5 +1,7 @@
 RaidMe::Application.routes.draw do
 
+  resources :fridge_friends
+
   resources :fridges
 
   resources :products
@@ -10,7 +12,7 @@ RaidMe::Application.routes.draw do
   
   root :to => 'static_pages#home'
   match '/about', :to => 'static_pages#about'
-  match '/imprint', :to => 'static_pages#imprint'
+  match '/imprint', :to => 'static_pages#impressum'
 
 
 
