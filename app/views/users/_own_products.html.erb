@@ -1,7 +1,8 @@
 <div>
-  <% if @fridges.present? %>
-    <%= @fridges.each do |fridge| %>
+  <% if @fridge.present? %>
+    <%= @fridge.each do |fridge| %>
 	  <% if fridge.user_id == @user.id %>
+	    <%= fridge.amount %>
 	    <%= fridge.product.name %>
 	    <%= fridge.product.marke %>
 	    <%= fridge.product.ort %>

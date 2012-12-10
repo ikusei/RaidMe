@@ -7,14 +7,15 @@ class User < ActiveRecord::Base
          :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :first_name, :last_name, :roomnumber
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :first_name, :last_name, :roomnumber, :product_ids
   # attr_accessible :title, :body
 
-  has_many :fridges
+  has_many :fridges, :dependent => :destroy
   has_many :products, :through => :fridges
 
   has_many :fridge_friends
-  
+
+  has_many :product_arrangements  
 
   validates_uniqueness_of :email
   
@@ -36,5 +37,25 @@ class User < ActiveRecord::Base
         user.email = data["email"] if user.email.blank?
       end
     end
+  end
+
+   def self.find_by_products( wanted_products )
+    # ids have to be integers, have to be uniq, cannot be 0
+    products_ids = wanted_products.map(&:to_i).uniq.keep_if{|id| id > 0 }
+
+    no_of_products = product_ids.length
+
+    # turn into a string, separated by commas
+    product_ids_csv = product_ids.join(",")
+
+    user_ids = Fridge.find_by_sql(<<-END_SQL).map{|r| r.user_id}
+      SELECT user_id, count(user_id) 
+      FROM fridges 
+      WHERE product_id IN ( #{product_ids_csv} ) 
+      GROUP BY user_id 
+      HAVING count(user_id) = #{no_of_products}
+    END_SQL
+
+    User.find( user_ids )
   end
 end

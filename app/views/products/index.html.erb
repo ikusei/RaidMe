@@ -1,29 +1,16 @@
 <h1>Listing products</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Marke</th>
-    <th>Ort</th>
-    <th>Datum</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<ul id="product_list">
 <% @products.each do |product| %>
-  <tr>
-    <td><%= product.name %></td>
-    <td><%= product.marke %></td>
-    <td><%= product.ort %></td>
-    <td><%= product.datum %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <li><%= link_to 'Show', product %>
+   | <%= link_to 'Edit', edit_product_path(product) %>
+   | <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= product.name %>
+    <%= product.marke %>
+  </li>
 <% end %>
-</table>
+</ul>
 
 <br />
 
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'New Product', new_product_path, id: "new_product_link", remote: true %>

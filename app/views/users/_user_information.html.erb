@@ -6,12 +6,13 @@ Friends:
 <% unless current_user.id == @user.id %>
   <% if @fridge_friend.count <= 0 %> 
     <%= link_to 'send Friend request', fridge_friends_path(:friend_id => @user.id), :method => :post %>
-  <% else %>  
+  <% end %>
+  <% if @fridge_friend.count > 0 %>  
   	<% @fridge_friend.each do |friends| %>
-      <% if friends.user_id != current_user.id && friends.friend_id != current_user.id %>
+      <% if friends.user_id != current_user.id && friends.friend_id != current_user.id && friends.friend_id != @user.id %>
         <%= link_to 'send Friend request', fridge_friends_path(:friend_id => @user.id), :method => :post %>
       <% end %>
-      <% if friends.user_id == current_user.id  %>
+      <% if friends.friend_id == @user.id %>
         <%= link_to 'delete Friend request', get_friend, :method => :delete, :id => "remove Friend" %>
       <% end %>
     <% end %>
@@ -20,12 +21,15 @@ Friends:
 
 <% if current_user.id == @user.id %>
   <div><% if @fridge_friend.present? %>
-         <% @fridge_friend.each do |friends| %>
-           <% if friends.user_id == current_user.id %>
-             <%= link_to friends.friend.email, user_path(friends.friend.id.to_s) %>
-           <% end %>
+         <% @fridge_friend.each do |friends| %> 
            <% if friends.friend_id == current_user.id %>
-             <%= link_to 'accept Friend request', fridge_friends_path(:friends_id => friends.user_id), :method => :post %>
+             
+               <%= link_to 'accept Friend request', fridge_friends_path(:friend_id => friends.user_id), :method => :post %>
+             
+           <% else %>
+             <% if friends.user_id == current_user.id %>
+               <%= link_to friends.friend.email, user_path(friends.friend.id.to_s) %>
+             <% end %>
            <% end %>
          <% end %>
        <% else %>

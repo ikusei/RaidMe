@@ -5,8 +5,9 @@ class UsersController < ApplicationController
 
   def show
    @user = User.find(params[:id])
-   @product = Fridge.find(:all, :conditions => ["user_id = ?", params[:id]])
+   @fridge = Fridge.find(:all)
    @fridge_friend = FridgeFriend.find(:all)
+   @product_arrangements = ProductArrangement.where(:product_id => params[:id], :user_id => current_user.id).first if current_user
   end
 
 

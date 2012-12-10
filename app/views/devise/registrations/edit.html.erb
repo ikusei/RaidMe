@@ -25,11 +25,17 @@
   <%= f.password_field :current_password %></div>
 
   <div>Produkte</div>
-  <div><% if @products.present? %>
-         <% @products.each do |product| %>
-         <%= product.name %>
-         <% end %>
-       <% end %>    
+  <div>
+
+    <% Product.all.each do |p| %>
+      <%= check_box_tag "user[product_ids][]", p.id, @user.product_ids.include?(p.id) %>
+      <%= link_to p.name, products_path(@product) %>
+      <%= select(:fridges, :amount, [['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]]) %>
+
+      
+    <% end %>
+
+    
   </div>
 
   <div><%= f.submit "Update" %></div>
