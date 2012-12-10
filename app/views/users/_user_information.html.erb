@@ -1,7 +1,8 @@
-<div><%= @user.email %></div>
-<div><%= @user.first_name %>
+<div>Mail: <%= @user.email %></div>
+<div>Name: <%= @user.first_name %>
 	 <%= @user.last_name %></div>
-<div><%= @user.roomnumber %></div>
+<div>Zimmernummer: <%= @user.roomnumber %></div>
+<div>Punkte: <%= @user.points %></div>
 Friends:
 <% unless current_user.id == @user.id %>
   <% if @fridge_friend.count <= 0 %> 

@@ -1,6 +1,6 @@
 <% if current_user %>
   <% if current_user.id == @user.id %>
-    
+    <% if @product_arrangements %>
     <% if @product.product_arrangements.length != 0 %>
 		<h3>Following users have ordered your product</h3>
 		
@@ -20,9 +20,7 @@
       <% end %>
 		
     <% end %>
-    
-    <p>Click link below to edit product.</p>
-    <%= link_to "edit product", edit_product_path(@product.id) %>
+    <% end %>
     
   <% else %>
     <% if button_request(:product_id => @product.id, :user_id => current_user.id) %>
