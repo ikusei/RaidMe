@@ -14,5 +14,3 @@ namespace :deploy do
  end
  require "bundler/capistrano"
  after "deploy:update_code", "deploy:linkconfig"
-    end
-end
