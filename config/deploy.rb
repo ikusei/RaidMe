@@ -26,10 +26,3 @@ end
 
 before("bundle:install", "deploy:rm_mingw32")
 
-namespace :deploy do
-   task :linkconfig do
-     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-   end
- end
- require "bundler/capistrano"
- after "deploy:update_code", "deploy:linkconfig"
