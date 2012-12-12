@@ -1,15 +1,27 @@
 <h1>Listing products</h1>
 
-<ul id="product_list">
-<% @products.each do |product| %>
-  <li><%= link_to 'Show', product %>
-   | <%= link_to 'Edit', edit_product_path(product) %>
-   | <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <%= product.name %>
-    <%= product.marke %>
-  </li>
+
+<% if @products.present? %>
+  <table>
+    <tr>
+	  <th>Name: </th>
+	  <th>Besitzer: </th>
+	</tr>
+  <% @products.each do |product| %>
+	<tr>
+	  <th><%= product.name %></th>
+	  <% if product.user.present? %>
+	    <th><%= product.user.first_name + " " + product.user.last_name %></th>
+	  
+	  <% end %>
+	</tr>
+  <br/>
+  <% end %>
+  </table>
 <% end %>
-</ul>
+
+
+
 
 <br />
 

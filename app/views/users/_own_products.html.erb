@@ -1,13 +1,10 @@
-<div>
-  <% if @fridge.present? %>
-    <%= @fridge.each do |fridge| %>
-	  <% if fridge.user_id == @user.id %>
-	    Anzahl: <%= fridge.amount %>
-	    Name: <%= fridge.product.name %>
-	    Marke: <%= fridge.product.marke %>
-	    Geschäft: <%= fridge.product.ort %>
-	  <% end %>
-	  <br/>
-	<% end %>
+<% if @product.present? %>
+  <% @product.each do |product| %>
+    <% if product.user_id == @user.id %>
+	  <%= product.name %>
+	  <%= product.marke %>
+	  <%= product.ort %>
+    <% end %>
+  <br/>
   <% end %>
-</div>
+<% end %>

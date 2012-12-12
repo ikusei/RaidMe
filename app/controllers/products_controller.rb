@@ -3,13 +3,13 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    @user = User.find(:all)
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
-    @product_arrangements = ProductArrangement.where(:product_id => params[:id], :user_id => current_user.id).first if current_user
 
     respond_to do |format|
       format.html # show.html.erb
@@ -57,5 +57,9 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to products_url
+  end
+
+  def get_user
+    @user = User.find(:all)
   end
 end

@@ -1,4 +1,0 @@
-<%= form_tag({:controller => "products", :action => "create"}, :method => "post") do %>        
-  <%= select(:product, :amount, [['1 Stern', 1], ['2 Sterne', 2], ['3 Sterne', 3], ['4 Sterne', 4], ['5 Sterne', 5]]) %>
-  <p><%= submit "Update amount of Product" %></p>
-<% end %>

@@ -29,10 +29,7 @@
 
     <% Product.all.each do |p| %>
       <%= check_box_tag "user[product_ids][]", p.id, @user.product_ids.include?(p.id) %>
-      <%= link_to p.name, products_path(@product) %>
-      <%= select(:fridges, :amount, [['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]]) %>
-
-      
+      <%= link_to p.name, products_path(@product) %>      
     <% end %>
 
     

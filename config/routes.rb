@@ -2,7 +2,7 @@ RaidMe::Application.routes.draw do
 
   resources :fridge_friends
 
-  resources :fridges
+  resources :product_arrangements
 
   resources :products
 

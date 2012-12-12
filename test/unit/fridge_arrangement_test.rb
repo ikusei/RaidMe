@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FridgeTest < ActiveSupport::TestCase
+class FridgeArrangementTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
