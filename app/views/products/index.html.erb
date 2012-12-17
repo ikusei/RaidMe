@@ -9,10 +9,9 @@
 	</tr>
   <% @products.each do |product| %>
 	<tr>
-	  <th><%= product.name %></th>
-	  <% if product.user.present? %>
+      <% if product.user.present? %>
+	    <th><%= product.name %></th>
 	    <th><%= product.user.first_name + " " + product.user.last_name %></th>
-	  
 	  <% end %>
 	</tr>
   <br/>

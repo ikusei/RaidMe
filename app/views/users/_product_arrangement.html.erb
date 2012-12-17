@@ -1,0 +1,26 @@
+<% if @user.id == current_user.id %>
+  <% if @product_arrangement.present? %>
+    <p>Sie haben folgende Produkte bei folgenden Personenen bestellt: </p>
+    <% ProductArrangement.all.each do |pa| %>
+      <% if current_user.id == pa.user_id && pa.acceptance == nil %>
+        <%= pa.product.name %>, <%= pa.interest.first_name + " " + pa.interest.last_name if pa.interest.present? %>
+        <%= link_to "Delete Request", get_arrangement, :method => :delete %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if @product_arrangement.length != 0 %>
+    <p>Folgende Personen haben bei Ihnen folgende Produkte bestellt: </p>
+    <% for i in 0...@product_arrangement.length %>
+      <% if current_user.id == @product_arrangement[i].interest_id && @product_arrangement[i].acceptance == nil %>
+        <%= @product_arrangement[i].product.name %>, <%= @product_arrangement[i].user.first_name + " " + @product_arrangement[i].user.last_name if @product_arrangement[i].user.present? %>
+        <p>You can accept the Request</p><%= render 'users/product_arrangement_update_form', :product_arrangement => @product_arrangement[i] %>
+      <% end %>
+      <% if @product_arrangement[i].acceptance %>
+        <p> You've already accept following requests: </p>
+        <%= @product_arrangement[i].product.name if @product_arrangement[i].product.present? %>, <%= @product_arrangement[i].user.first_name + " " + @product_arrangement[i].user.last_name if @product_arrangement[i].user.present? %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+

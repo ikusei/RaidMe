@@ -7,6 +7,7 @@ class UsersController < ApplicationController
    @user = User.find(params[:id])
    @product = Product.find(:all)
    @fridge_friend = FridgeFriend.where(:user_id => current_user.id).all
+   @product_arrangement = ProductArrangement.find(:all)
   end
 
 

@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.find(:all)
     @user = User.find(:all)
   end
 
@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
     @product = Product.create!(params[:product])
 
     respond_to do |format|
-        format.html { redirect_to products_path, notice: 'Product was successfully created.' }
+        format.html { redirect_to edit_user_registration_path, notice: 'Product was successfully created.' }
         format.js
     end
   end

@@ -1,8 +1,9 @@
 class ProductArrangement < ActiveRecord::Base
-  attr_accessible :product_id, :user_id, :acceptance
+  attr_accessible :product_id, :user_id, :acceptance, :interest_id
 
   
-  has_many :users
+  belongs_to :user
+  belongs_to :interest, :class_name => "User"
 
-  has_many :products
+  belongs_to :product
 end

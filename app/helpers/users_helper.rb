@@ -9,4 +9,15 @@ module UsersHelper
 	def get_friend
 	  return FridgeFriend.find(:first, :conditions => { :user_id => current_user.id })
 	end
+
+	def get_arrangement
+	  return ProductArrangement.find(:first, :conditions => { :user_id => current_user.id })
+	end
+
+	def get_new_arrangement
+	  pa = ProductArrangement.find(params[:id])
+	  pa.acceptance = true
+	  pa.save
+	  return pa
+	end
 end
