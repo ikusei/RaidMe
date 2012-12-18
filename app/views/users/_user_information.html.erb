@@ -1,6 +1,9 @@
-<div>Mail: <%= @user.email %></div>
-<div>Name: <%= @user.first_name %>
-	 <%= @user.last_name %></div>
-<div>Zimmernummer: <%= @user.roomnumber %></div>
+<h1 class="post-heading">
+	<%= @user.email %><br />
+	<%= @user.first_name %><br />
+	 <%= @user.last_name %> <%= @user.roomnumber %></h1>
+    <div class="meta">
+      <span class="entry-date">Mitglied seit: 23 Sep, 2012</span>
+    </div>
 <div>Punkte: <%= @user.points %></div>
 

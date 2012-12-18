@@ -1,13 +1,30 @@
-<div><%= gravatar_for @user, :size => 200 %></div>
-<%= render "user_information" %>
-<br />
-Friends:
-<%= render "friends" %>
-<br />
-My Fridge Contains:
-<br />
-<%= render "own_products" %>
-<br />
-Reuqests:
-<%= render "product_arrangement" %>
+<!-- posts list -->
+    <div id="posts-list">
+    
+  <article class="format-standard">
+    
+    <div class="feature-image">
+      <%= gravatar_for @user, :size => 200 %>
+    </div>
+    <%= render "user_information" %>
+    
+    <div class="excerpt">Hey Leute! Wohne im Campus und bin immer auf der Suche nach Schokolade (-: Kann dafür Bier anbieten!
+
+    Friends:
+	<%= render "friends" %>
+	<br />
+	My Fridge Contains:
+	<br />
+	<%= render "own_products" %>
+	<br />
+	Reuqests:
+	<%= render "product_arrangement" %>
+    </div>
+                
+  </article>
+  
+      
+    </div>
+            <!-- ENDS posts list -->
+
 

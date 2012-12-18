@@ -1,5 +1,70 @@
-<h1>Raid Me</h1>
-<p>With this Web App you can share your things from the fridge with other people!</p>
+<div id="content"> 
+	        	
+	        	<!-- suchen oder geben -->
+	        	<div class="featured">
+	        		<figure>
+	        			<%= link_to image_tag("suchen.jpg", :alt => "SUCHEN"), root_path , :class => "thumb" %>
+	        		</figure>
+	        	
+	        		<figure>
+	        			<%= link_to image_tag("geben.jpg", :alt => "GEBEN"), user_path(current_user) , :class => "thumb" %>
+	        		</figure>
+	        						        		
+	        	<!-- ENDS suchen oder geben -->
+	        	
+	        	<div class="trenner">
+	        	<img  src="trennlinie.png" alt="trennlinie">
+				</div>
+
+			<!-- SUCHEN -->
+				
+					<!--suchfeld--!>
+				<form class="form-wrapper cf">
+       				 <input type="text" placeholder="Search here for food and drinks..." required>
+        			<button type="submit">Search</button>
+   				</form>   
+
+			<!-- tabelle suchergebnisse -->
+
+	        <div class="suchergebnisse">
+	        		
+	        		<table cellpadding="0"> 
+						<thead><tr> 
+							<th>NUMBER</th> 
+								<th>PRODUCT</th> 
+								<th>NAME</th> 
+								<th>ROOM NR.</th> 
+								<th></th> 
+							</tr></thead> 
+			
+			<div class="trenner_suchergebnis">
+	        <img  src="trennlinie.png" alt="trennlinie">
+			</div>
+
+							<tbody> <tr> 
+								<td>1</td> 
+								<td>Bier</td> 
+								<td>Jana Blume</td>
+								<td>350</td> 
+								<td><a href="zumprofil.html">GET IT »</a></td> 
+							</tr> 
+							</tbody> 
+							</table>
+				</div>
+	        						        		
+	        	<!-- ENDS suchen -->
+				
+				
+			
+			</div>
+			<!-- ENDS content -->
+			
+			<div class="clearfix"></div>
+			<div class="shadow-main"></div>
+			
+			
+		</div>
+		<!-- ENDS MAIN -->
 
 
 

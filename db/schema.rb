@@ -22,14 +22,6 @@ ActiveRecord::Schema.define(:version => 20121213112503) do
 
   add_index "fridge_friends", ["user_id", "friend_id"], :name => "index_fridge_friends_on_user_id_and_friend_id"
 
-  create_table "fridges", :force => true do |t|
-    t.integer  "product_id"
-    t.integer  "user_id"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-    t.integer  "amount",     :default => 1
-  end
-
   create_table "product_arrangements", :force => true do |t|
     t.integer  "product_id",  :limit => 255
     t.datetime "created_at",                 :null => false
