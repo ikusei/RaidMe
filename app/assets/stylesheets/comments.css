@@ -94,7 +94,7 @@
 
 
 
-.comment .children li{ background: url(assets/images/reply.png) no-repeat 10px 40px;  }
+.comment .children li{ background: url(reply.png) no-repeat 10px 40px;  }
 
 .comment .children .comment-body { 
 	margin: 20px 0 0 50px;

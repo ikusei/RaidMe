@@ -18,7 +18,7 @@
 }
 
 body{
-	background: #ececec url(assets/images/main-pattern.png);
+	background: #ececec url(main-pattern.png);
 	color: #888;
 }
 
@@ -134,7 +134,7 @@ h1.heading, h2.heading, h3.heading, h4.heading, h5.heading, h6.heading{
 header{
 	position: relative;
 	height: 225px;
-	background: url(assets/images/header.png)  repeat-x center center;
+	background: url(header.png)  repeat-x center center;
 	display: block;
 }
 
@@ -361,7 +361,7 @@ span a:hover{
 	width: 852px;
 	height: 11px;
 	margin-left: -20px;
-	background: url(assets/images/shadow-main.png) no-repeat top center;
+	background: url(shadow-main.png) no-repeat top center;
 	margin-bottom: -12px;
 }
 
@@ -371,7 +371,7 @@ span a:hover{
 	display: block;
 	float: left;
 	width: 68px;
-	background: url(assets/images/social-desktop.png) no-repeat bottom center;
+	background: url(social-desktop.png) no-repeat bottom center;
 	padding: 10px 0px 20px 0px;
 }
 
@@ -407,7 +407,7 @@ span a:hover{
 
 .featured figure .thumb{
 	display: block;
-	background: url(assets/images/pfeil.png) no-repeat center center;
+	background: url(pfeil.png) no-repeat center center;
 	margin-bottom: 21px;
 	
 	-webkit-box-shadow: 3px 3px 0px rgba(0,0,0,.2); 
