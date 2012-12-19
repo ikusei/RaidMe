@@ -18,4 +18,9 @@
 $(document).ready(function() {
 	$('p.notice').fadeOut(5000);
 	$('p.alert').fadeOut(5000);
+
+	$(".wrapper nav ul#nav").children("li").click(function(){
+	  $(".wrapper nav ul#nav").children("li").removeClass("current-menu-item");
+      $(this).children("li").addClass("current-menu-item");
+	});
 });	

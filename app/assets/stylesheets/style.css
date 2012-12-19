@@ -322,8 +322,8 @@ nav a{
 
 #user-area-content {
 position: relative;
-margin-left: 75%;	
-width: 200px;
+margin-left: 76.2%;	
+width: 251px;
 }
 
 span {
@@ -335,7 +335,11 @@ span a:hover{
 	color:#90bd24;
 	}
 
-
+.not_signed_in {
+ position: absolute;
+ top: 50px;
+ width: 310px
+}
 /* MAIN ------------------------------------------------------------*/
 
 #main{
@@ -559,7 +563,7 @@ thead {
 	
 table {
    width: 693px;
-   line-height: 30px;
+   line-height: 40px;
 }
 
 th, td {
@@ -570,7 +574,7 @@ th, td {
 	
 th {
 	font-weight: bold;
-	border: 2px solid grey; 
+	border: none; 
 }
 
 td a{

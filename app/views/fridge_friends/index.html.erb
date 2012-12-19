@@ -1,3 +1,4 @@
+<% if @fridge_friend.present? %>
 <% @fridge_friend.each do |ff| %>
   <% if ff.user_id == current_user.id && ff.friend_id != current_user.id %>
     <% if ff.friend.first_name.present? && ff.friend.last_name.present? %>
@@ -6,4 +7,7 @@
       <%= link_to ff.friend.email, user_path(ff.friend.id.to_s) %>
     <% end %> 
   <% end %>
+<% end %>
+<% else %>
+  <p>Currently no Friends</p>
 <% end %>

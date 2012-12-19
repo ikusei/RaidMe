@@ -4,34 +4,32 @@
   <% end %>
   <% if @fridge_friend.count > 0 %>  
   	<% @fridge_friend.each do |friends| %>
-      <% if friends.friend_id != @user.id %>
+      <% if friends.friend_id != current_user.id || friends.acceptance == false %>
         <%= link_to 'send Friend request', fridge_friends_path(:friend_id => @user.id), :method => :post %>
       <% end %>
-      <% if friends.friend_id == @user.id %>
+      <% if friends.friend_id == @user.id && friends.user_id == current_user.id || friends.acceptance == true %>
         <%= link_to 'delete Friend request', get_friend, :method => :delete, :id => "remove Friend" %>
       <% end %>
     <% end %>
   <% end %>
 <% end %>
 
-<% if current_user.id == @user.id %>
-  <div><% if @fridge_friend.present? %>
-         <% @fridge_friend.each do |friends| %> 
-           <% if friends.friend_id == current_user.id %>
+<% if @fridge_friend.length != 0 %>
+  <% if current_user.id == @user.id %>
+    <% for i in 0...@fridge_friend.length %> 
+      <% if @fridge_friend[i].friend_id == current_user.id && @fridge_friend[i].acceptance == false %>
              
-               <%= link_to "accept friend request from #{friends.user.email}", fridge_friends_path(:friend_id => friends.user_id), :method => :post %>
-             
-           <% elsif friends.user_id == current_user.id && friends.friend_id != current_user.id %>
-             <% if friends.friend.first_name.present? && friends.friend.last_name.present? %>
-               <%= link_to friends.friend.first_name + " " + friends.friend.last_name, user_path(friends.friend.id.to_s) %>
-             <% else %>
-               <%= link_to friends.friend.email, user_path(friends.friend.id.to_s) %>
-             <% end %>
-             
-           <% end %>
-         <% end %>
-       <% else %>
-         <p>Currently no Friends!</p>
-       <% end %>
-  </div>
+        <p>You can accept the Friend Request </p><%= render 'users/fridge_friend_update_form', :fridge_friend => @fridge_friend[i] %>
+      <% end %>
+      <% if @fridge_friend[i].acceptance == true %>
+        <% if @fridge_friend[i].user.first_name.present? && @fridge_friend[i].user.last_name.present? %>
+          <%= link_to @fridge_friend[i].user.first_name + " " + @fridge_friend[i].user.last_name, user_path(@fridge_friend[i].user.id.to_s) %>
+        <% else %>
+          <%= link_to @fridge_friend[i].user.email, user_path(@fridge_friend[i].user.id.to_s) %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>Currently no Friends!</p>
 <% end %>

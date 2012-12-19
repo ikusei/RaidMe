@@ -23,6 +23,17 @@ class FridgeFriendsController < ApplicationController
       end
   end
 
+  def update
+    @fridge_friend = FridgeFriend.find(params[:id])
+    if current_user.id == @fridge_friend.friend_id 
+      if @fridge_friend.update_attribute(:acceptance, true)
+        redirect_to :back, :notice => 'Fridge Friend was successfully updated.' 
+      else
+          redirect_to :back, :notice => 'Fridge Friend was not successfully updated.' 
+      end
+    end
+  end
+
   # DELETE /fridge_friends/1
   # DELETE /fridge_friends/1.json
   def destroy

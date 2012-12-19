@@ -1,71 +1,71 @@
-<div id="content"> 
+
 	        	
 	        	<!-- suchen oder geben -->
-	        	<div class="featured">
-	        		<figure>
-	        			<%= link_to image_tag("suchen.jpg", :alt => "SUCHEN"), root_path , :class => "thumb" %>
-	        		</figure>
-	        	
-	        		<figure>
-	        			<%= link_to image_tag("geben.jpg", :alt => "GEBEN"), root_path , :class => "thumb" %>
-	        		</figure>
-	        						        		
-	        	<!-- ENDS suchen oder geben -->
-	        	
-	        	<div class="trenner">
-	        	<img  src="trennlinie.png" alt="trennlinie">
-				</div>
+	<div class="featured">
+		<figure>
+			<%= link_to image_tag("suchen.jpg", :alt => "SUCHEN"), root_path , :class => "thumb" %>
+		</figure>
+	
+		<figure>
+			<%= link_to image_tag("geben.jpg", :alt => "GEBEN"), root_path , :class => "thumb" %>
+		</figure>
+					        		
+	<!-- ENDS suchen oder geben -->
+	
+	<div class="trenner">
+	  <%= image_tag("trennlinie.png", :alt => "trennlinie") %>
+	</div>
 
-			<!-- SUCHEN -->
-				
-					<!--suchfeld--!>
-				<form class="form-wrapper cf">
-       				 <input type="text" placeholder="Search here for food and drinks..." required>
-        			<button type="submit">Search</button>
-   				</form>   
+<!-- SUCHEN -->
+	
+		<!--suchfeld--!>
+	<form class="form-wrapper cf">
+			 <input type="text" placeholder="Search here for food and drinks..." required>
+		<button type="submit">Search</button>
+		</form>   
 
-			<!-- tabelle suchergebnisse -->
+<!-- tabelle suchergebnisse -->
 
-	        <div class="suchergebnisse">
-	        		
-	        		<table cellpadding="0"> 
-						<thead><tr> 
-							<th>NUMBER</th> 
-								<th>PRODUCT</th> 
-								<th>NAME</th> 
-								<th>ROOM NR.</th> 
-								<th></th> 
-							</tr></thead> 
-			
-			<div class="trenner_suchergebnis">
-	        <img  src="trennlinie.png" alt="trennlinie">
-			</div>
+  <div class="suchergebnisse">
+		
+	<table> 
+	  <thead><tr> 
+		<th>PRODUCT</th> 
+		<th>NAME</th> 
+		<th>ROOM NR.</th> 
+		<th></th> 
+		</tr></thead> 
 
-							<tbody> <tr> 
-								<td>1</td> 
-								<td>Bier</td> 
-								<td>Jana Blume</td>
-								<td>350</td> 
-								<td><a href="zumprofil.html">GET IT »</a></td> 
-							</tr> 
-							</tbody> 
-							</table>
-				</div>
-	        						        		
-	        	<!-- ENDS suchen -->
-				
-				
+	<div class="trenner_suchergebnis">
+	<%= image_tag("trennlinie.png", :alt => "trennlinie") %>
+	</div>
+
+	  <tbody> <% @products.each do |p| %>
+	  	<tr> 
+	   	<td><%= p.name %></td> 
+		<td><%= p.user.first_name %> <%= p.user.last_name %></td>
+		<td><%= p.user.roomnumber %></td> 
+		<td><%= link_to "GET IT", user_path(p.user_id) %></td> 
+	  </tr> 
+	  <% end %>
+	  </tbody> 
+	  </table>
+	</div>
+						        		
+	<!-- ENDS suchen -->
+	</div>
+  <div class="clearfix"></div>
+  <div class="shadow-main"></div>
+
+</div>
+<!-- ENDS content -->
+
+
+
 			
-			</div>
-			<!-- ENDS content -->
-			
-			<div class="clearfix"></div>
-			<div class="shadow-main"></div>
-			
-			
-		</div>
+
 		<!-- ENDS MAIN -->
 
 
 
-<%= link_to 'Produktliste', products_path %>
+
