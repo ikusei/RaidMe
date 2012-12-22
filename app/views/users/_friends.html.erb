@@ -4,7 +4,7 @@
   <% end %>
   <% if @fridge_friend.count > 0 %>  
   	<% @fridge_friend.each do |friends| %>
-      <% if friends.acceptance == true %>
+      <% if friends.acceptance == true && friends.user_id != current_user.id %>
         <%= link_to 'delete Friend request', get_friend, :method => :delete, :id => "remove Friend" %>
       <% end %>
       <% if friends.acceptance == false %>
