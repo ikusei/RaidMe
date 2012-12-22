@@ -8,6 +8,7 @@ require "bundler/capistrano"
  default_run_options[:pty] = true
  set :use_sudo, false
  set :port, 5412
+ set :bundle_flags, "--quiet"
  role :web, "multimediaart.at"                   # Your HTTP server, Apache/etc
  role :app, "multimediaart.at"                   # This may be the same as your `Web` server
  role :db,  "multimediaart.at", :primary => true # This is where Rails migrations will run
