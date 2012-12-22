@@ -27,4 +27,3 @@ end
 
 before("bundle:install", "deploy:rm_mingw32")
 
-after "deploy", "deploy:migrate"
