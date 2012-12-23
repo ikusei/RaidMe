@@ -1,0 +1,40 @@
+
+
+
+<div class="suchergebnisse">
+  <% if @products.present? %>	
+	<table> 
+	  <thead><tr> 
+		<th>PRODUCT</th> 
+		<th>NAME</th> 
+		<th>ROOM NR.</th> 
+		<th></th> 
+		</tr></thead> 
+
+	<div class="trenner_suchergebnis">
+	<%= image_tag("trennlinie.png", :alt => "trennlinie") %>
+	</div>
+
+	  <tbody> 
+	    <% @products.each do |p| %>
+	  	    <tr> 
+			  <td><%= p.name %></td> 
+			  <td><%= p.user.first_name %> <%= p.user.last_name %></td>
+			  <td><%= p.user.roomnumber %></td> 
+			  <td><%= link_to "GET IT", user_path(p.user_id) %></td> 
+		    </tr>
+	    <% end %>
+	  </tbody> 
+	</table>
+  <% else %>
+  	<p>There are no articles you searched</p>
+  <% end %>
+  </div>
+	
+  <%= link_to "Back", root_path, :class => "page" %>					        		
+	<!-- ENDS suchen -->
+  <div class="clearfix"></div>
+  
+
+
+

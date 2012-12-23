@@ -17,13 +17,11 @@
 	</div>
 
 <!-- SUCHEN -->
-	
 		<!--suchfeld--!>
-	<form class="form-wrapper cf">
-			 <input type="text" placeholder="Search here for food and drinks..." required>
-		<button type="submit">Search</button>
-		</form>   
-
+	<%= form_tag(search_updatemap_path, :class => "form-wrapper cf") do %>
+  		<%= text_field_tag :searchArticle, @storred_search_article, :placeholder => 'Search here for food and drinks...' %>
+ 		<%= button_tag "Search" %>
+	<% end %>
 <!-- tabelle suchergebnisse -->
 
   <div class="suchergebnisse">
@@ -41,12 +39,25 @@
 	</div>
 
 	  <tbody> <% @products.each do |p| %>
-	  	<tr> 
-	   	<td><%= p.name %></td> 
-		<td><%= p.user.first_name %> <%= p.user.last_name %></td>
-		<td><%= p.user.roomnumber %></td> 
-		<td><%= link_to "GET IT", user_path(p.user_id) %></td> 
-	  </tr> 
+	  	<% if @storred_search_article.present? %>
+	  	  <% if p.name == @storred_search_article %>
+	  	    <tr> 
+			  <td><%= p.name %></td> 
+			  <td><%= p.user.first_name %> <%= p.user.last_name %></td>
+			  <td><%= p.user.roomnumber %></td> 
+			  <td><%= link_to "GET IT", user_path(p.user_id) %></td> 
+			</tr>
+	  	  <% else %>
+	  	    <p> No products </p>
+	  	  <% end %>
+	  	<% else %>
+	  	  <tr> 
+			<td><%= p.name %></td> 
+			<td><%= p.user.first_name %> <%= p.user.last_name %></td>
+			<td><%= p.user.roomnumber %></td> 
+			<td><%= link_to "GET IT", user_path(p.user_id) %></td> 
+		  </tr>
+	  	<% end %>
 	  <% end %>
 	  </tbody> 
 	  </table>
@@ -55,7 +66,7 @@
 	<!-- ENDS suchen -->
 	</div>
   <div class="clearfix"></div>
-  <div class="shadow-main"></div>
+  
 
 </div>
 <!-- ENDS content -->
