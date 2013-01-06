@@ -424,9 +424,6 @@ span a:hover{
 	box-shadow: 3px 3px 0px rgba(0,0,0,.2); 
 }
 
-.featured figure .thumb:hover img{
-	opacity: 0.50;
-}
 
 .featured figure:hover .link{
 	display: block;

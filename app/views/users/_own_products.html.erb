@@ -16,7 +16,7 @@
         <% end %>
       <% end %>
     <% else %>
-	  <% unless current_user.id ==  product.user_id %>
+	  <% if current_user.id !=  product.user_id %>
 		<% if current_user.points >= -5 %>
 		    | <%= link_to " Send Request", product_arrangements_path(:user_id => current_user.id, :interest_id => @user.id, :product_id => product.id), :method => :post %>
 	    <% else %>
