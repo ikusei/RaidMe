@@ -43,8 +43,10 @@
 	  	  <% if p.name == @storred_search_article %>
 	  	    <tr> 
 			  <td><%= p.name if p.name.present? %></td> 
-			  <td><%= p.user.first_name if p.user.first_name.present? %> <%= p.user.last_name if p.user.last_name.present? %></td>
-			  <td><%= p.user.roomnumber if p.user.roomnumber.present? %></td> 
+			  <% if p.user.first_name && p.user.last_name && p.user.roomnumber %>
+			  <td><%= p.user.first_name %> <%= p.user.last_name %></td>
+			  <td><%= p.user.roomnumber %></td> 
+			  <% end %>
 			  <td><%= link_to "GET IT", user_path(p.user_id) %></td> 
 			</tr>
 	  	  <% else %>
