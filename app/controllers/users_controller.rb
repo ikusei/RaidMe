@@ -17,6 +17,7 @@ class UsersController < ApplicationController
       params[:user].delete(:password)
       params[:user].delete(:password_confirmation)
     end
+    redirect_to user_path(@user)
   end
 	
 end

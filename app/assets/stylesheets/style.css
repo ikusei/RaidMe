@@ -29,7 +29,7 @@ body p{
 body a{
 	text-decoration: none;
 	color: #999999;
-	margin-left: -1%;
+	margin-left: 0%;
 	
 	-webkit-transition: color 0.3s ease;
 	-moz-transition: color 0.3s ease;

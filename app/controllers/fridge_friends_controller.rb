@@ -1,5 +1,9 @@
 class FridgeFriendsController < ApplicationController
   
+  def index
+    @fridge_friend = FridgeFriend.find(:all)
+    
+  end
   def new
     @user = current_user
     @friend = User.find(params[:id])
