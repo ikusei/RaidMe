@@ -11,8 +11,10 @@ class UsersController < ApplicationController
   end
 
 
-
 	def update
+    unless params[:id]
+      current_user.id
+    end
     if params[:user][:password].blank?
       params[:user].delete(:password)
       params[:user].delete(:password_confirmation)

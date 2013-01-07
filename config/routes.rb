@@ -10,6 +10,8 @@ RaidMe::Application.routes.draw do
 
   resources :users
 
+ 
+
   controller :search do
      match 'search/updatemap' => :update_map
   end

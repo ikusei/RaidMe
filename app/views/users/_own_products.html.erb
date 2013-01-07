@@ -6,7 +6,7 @@
 	  <%= product.marke %>
 	  <%= product.ort %>
 	<% end %>
-	<% if current_user.id == product.user_id %>
+	<% if current_user.id == @user.id && current_user.id == product.user_id %>
 	  | <%= link_to " destroy article", product, :method => :delete %>
 	<% end %>
 	<% if @product_arrangement.present? %>
@@ -14,15 +14,13 @@
         <% if pa.acceptance == nil && pa.product_id == product.id && pa.interest_id == @user.id %>
           <strong>reserviert </strong>
         <% end %>
-      <% end %>
-    <% else %>
-	  <% if current_user.id !=  product.user_id %>
-		<% if current_user.points >= -5 %>
-		    | <%= link_to " Send Request", product_arrangements_path(:user_id => current_user.id, :interest_id => @user.id, :product_id => product.id), :method => :post %>
-	    <% else %>
-	      <h3>Sorry, you can not order the product because you have got no points.</h3>
-	    <% end %>
-
+		<% if current_user.id != @user.id && pa.product_id != product.id && pa.interest_id != @user.id %>
+		  <% if current_user.points >= -5 %>
+			| <%= link_to " Send Request", product_arrangements_path(:user_id => current_user.id, :interest_id => @user.id, :product_id => product.id), :method => :post %>
+		  <% else %>
+		    <h3>Sorry, you can not order the product because you have got no points.</h3>
+		  <% end %>
+		<% end %>
 	  <% end %>
 	<% end %> 
   <br/>
