@@ -25,4 +25,4 @@ production:
   database: raidme_production
   pool: 5
   username: raidme
-  password: 
+  password: eriuj206
