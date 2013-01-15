@@ -14,24 +14,6 @@ require "bundler/capistrano"
  role :db,  "multimediaart.at", :primary => true # This is where Rails migrations will run
  # role :db,  "your slave db-server here
 
-namespace :deploy do
-  task :start do ; end
-  task :stop do ; end
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-  end
-
-  task :copy_config do
-    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-  end
-end
-
-
-
-load 'deploy/assets'
-
-after "deploy:update_code", "deploy:copy_config"
-
 
  namespace :deploy do
 
