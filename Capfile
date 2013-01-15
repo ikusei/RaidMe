@@ -12,6 +12,5 @@ namespace :deploy do
      run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
    end
  end
- require "bundler/capistrano"
- after "deploy:update_code", "deploy:linkconfig"
+ 
 
