@@ -5,6 +5,18 @@
 @import url('elements.css');
 
 
+@font-face {
+    font-family: 'AftasansRegular';
+    src: url(../afta-sans-fontfacekit/AftaSansThin-Regular-webfont.eot);
+    src: url(../afta-sans-fontfacekit/AftaSansThin-Regular-webfont.eot?#iefix) format('embedded-opentype'),
+         url(../afta-sans-fontfacekit/AftaSansThin-Regular-webfont.woff) format('woff'),
+         url(../afta-sans-fontfacekit/AftaSansThin-Regular-webfont.ttf) format('truetype'),
+         url(../afta-sans-fontfacekit/AftaSansThin-Regular-webfont.svg#AftasansRegular) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 /* GENERAL ------------------------------------------------------------*/
 
 
@@ -19,7 +31,9 @@
 
 body{
 	background: #ececec url(main-pattern.png);
-	color: #888;
+	color: #333333;
+	word-wrap: break-word;
+	font-family:'AftasansRegular'; Helvetica;
 }
 
 body p{
@@ -28,8 +42,7 @@ body p{
 
 body a{
 	text-decoration: none;
-	color: #999999;
-	margin-left: 0%;
+	color: #666666;
 	
 	-webkit-transition: color 0.3s ease;
 	-moz-transition: color 0.3s ease;
@@ -41,10 +54,6 @@ body a:hover{
 	color: #90bd24;
 }
 
-body a.page{
-	margin-left: 12%;
-}
-
 #logo{
 	display: block;
 	padding-top: 97px;
@@ -54,7 +63,7 @@ body a.page{
 #logo:hover{ opacity: 0.8;}
 
 .headline{
-	font-family: Allan, helvetica, arial, sans-serif;
+	font-family: helvetica, arial, sans-serif;
 	font-size: 36px;
 	line-height: 1.5em;
 	text-align: center;
@@ -112,7 +121,7 @@ body a.page{
 /* HEADINGS ------------------------------------------------------------*/
 
 h1, h2, h3, h4, h5, h6{
-	font-family: Allan, helvetica, arial, sans-serif;
+	font-family: 'AftasansRegular',helvetica, arial, sans-serif;
 	color: #444;
 }
 
@@ -325,27 +334,141 @@ nav a{
 
 /* LOGIN ------------------------------------------------------------*/
 
-#user-area-content {
-position: relative;
-margin-left: 74.5%;	
-padding-top: 11.87%;
-width: 251px;
+#login {
+    position: relative;
+    left: 59%;
+    top: -190px;
+    width: 325px;
+    z-index: 1;
+    color: #ffffff;
 }
 
-span {
-	font-size: 12px;
-	color:#999999;
+#login .content {
+    position: relative;
+    width: 302px;
+    padding: 7px 25px 4px 10px;
+    background: url(login_bg.png) repeat scroll 0% 0% transparent;
+}
+
+
+#logout {
+    position: relative;
+    left: 62%;
+    top: -200px;
+    width: 335px;
+    z-index: 1;
+    color: #ffffff;
+}
+
+#logout .content {
+    position: relative;
+    width: 300px;
+    padding-right: 10px;
+    padding-bottom: 6px;
+    background: url(login_bg.png) repeat scroll 0% 0% transparent;
+}
+
+#logout .content.buttonText {
+	margin-left: 10px;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#login .content input.text {
+    margin-bottom: 4px;
+}
+
+#login .content input.email {
+    width: 154px;
+    }
+
+element.style {
+	color: #777777;
 	}
 	
-span a:hover{
-	color:#90bd24;
+input.text, textarea, select {
+    border-left: 1px solid rgb(54, 54, 54);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(54, 54, 54) rgb(218, 221, 204) rgb(218, 221, 204) rgb(54, 54, 54);
+    padding: 1px;
+    font-family: verdana;
+    font-size: 11px;
+}
+
+#login .content input.password {
+    width: 80px;
+}
+
+#login .content input.remember {
+    margin: 2px 0px 0px 0px;
+}
+
+#login .content .fb_button {
+    position: absolute;
+    right: 28px;
+    bottom: 5px;
+}
+.hover2 a:hover {
+    color: rgb(33, 37, 37) !important;
+}
+a.fb_button, a.fb_button_rtl, .fb_button, .fb_button_rtl {
+    text-decoration: none;
+}
+
+.fb_button_medium, .fb_button_medium_rtl {
+    background-position: left -188px;
+    font-size: 11px;
+    line-height: 14px;
+}
+.fb_button, .fb_button_rtl {
+    background: url(http:static.ak.fbcdn.net/rsrc.php/v2/yl/x/FGFbc80dUKj.png) no-repeat scroll 0% 0% rgb(41, 68, 126);
+    cursor: pointer;
+    display: inline-block;
+    padding: 0px 0px 0px 1px;
+    text-decoration: none;
+    outline: medium none;
+}
+
+.fb_button .fb_button_text, .fb_button_rtl .fb_button_text {
+    background: url(http:static.ak.fbcdn.net/rsrc.php/v2/yl/x/FGFbc80dUKj.png) repeat scroll 0% 0% rgb(95, 120, 171);
+    border-top: 1px solid rgb(135, 154, 192);
+    border-bottom: 1px solid rgb(26, 53, 110);
+    color: rgb(255, 255, 255);
+    display: block;
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-weight: bold;
+    padding: 2px 6px 3px;
+    margin: 1px 1px 0px 21px;
+    text-shadow: none;
+}
+
+
+.fb_button_medium, .fb_button_medium_rtl {
+    background-position: left -188px;
+    font-size: 11px;
+    line-height: 14px;
+}
+
+#button_logout {
+	position: relative;
+	float: right;
+	top: -24px;
+}
+	
+.einstellungen {
+	margin-top: -21px;
+	padding-left: 174px;
 	}
 
-.not_signed_in {
- position: absolute;
- top: 50px;
- width: 310px
-}
+.profilname {
+	margin-top: -30px;
+	padding-left: 60px;
+		}
+	
 /* MAIN ------------------------------------------------------------*/
 
 #main{
@@ -356,8 +479,7 @@ span a:hover{
 	position: relative;
 	display: block;
 	width: 852px;
-	float: left;
-	
+	float: left;	
 	background: #f5f5f5;
 	
 	-webkit-box-shadow: 0px 0px 4px rgba(0,0,0,.1); 
@@ -424,6 +546,9 @@ span a:hover{
 	box-shadow: 3px 3px 0px rgba(0,0,0,.2); 
 }
 
+.featured figure .thumb:hover img{
+	opacity: 0.50;
+}
 
 .featured figure:hover .link{
 	display: block;
@@ -552,11 +677,10 @@ span a:hover{
 .suchergebnisse {
 	padding-left: 12%;
 	padding-top: 40px;
-	margin-bottom: 2%;
 		}
 
 table caption {
-	padding-bottom: 20px;
+	padding-bottom: 100px;
 	text-align: right;
 	}
 
@@ -576,8 +700,7 @@ th, td {
 }
 	
 th {
-	font-weight: bold;
-	border: none; 
+	font-weight: bold; 
 }
 
 td a{
@@ -689,13 +812,16 @@ td a:hover{
 
 #posts-list article{
 	margin-bottom: 80px;
+	width:800px;
 }
 
 
 #posts-list .feature-image,
 #post-content .feature-image{
-	width: 100%;
-	margin-bottom: 21px;
+	/*
+width: 100%;
+*/
+	margin-top: 10px;
 }
 
 #posts-list .feature-image img,
@@ -732,7 +858,6 @@ td a:hover{
 
 #posts-list .meta,
 #post-content .meta{
-	border-bottom: 1px solid #ccc;
 	margin-bottom: 11px;
 	padding-bottom: 11px;
 	font-style: italic;
@@ -757,6 +882,7 @@ td a:hover{
 
 #posts-list .excerpt{
 	margin-bottom: 21px;
+	clear:both;
 }
 
 #posts-list .read-more{
@@ -780,7 +906,151 @@ td a:hover{
 	background: #fe8300;
 }
 
+#posts-list .floatLeft{
+	float:left;
+}
 
+#posts-list .personalInfo{
+	margin-left:30px;
+}
+
+.personalProfile{
+	border-bottom:1px dotted #222;
+	overflow:hidden;
+}
+
+.personalProfile .personalProfileInformation {
+	margin:95px 0 0 20px;
+}
+
+.friends{
+    border-left: 1px dotted #222;
+    margin: 0 0 10px 0;
+    padding: 1em;
+    width: 200px;
+}
+
+.friends .friendsHeadline{
+	text-transform:uppercase;
+}
+
+.floatRight{
+	float:right;
+}
+
+.friend > *{float:left;}
+.friend {clear:both;
+margin-bottom:5px;
+overflow:hidden;}
+
+.friend .friendImg{
+	width:27px;
+	height:27px;
+	background:#000;
+	margin-top: 7px;
+}
+
+.friend .friendName{
+	margin:15px 0 0 64px;
+	text-transform:uppercase;
+}
+
+.fridge{
+	margin-top: 20px;
+}
+
+.fridgeHeadline > *{
+	float:left;
+}
+
+.fridgeHeadline h2{
+    color: #222222;
+    font-size: 30px;
+    margin: 0 20px 10px;
+    padding: 5px;
+    text-transform: uppercase;
+	
+}
+
+.fridgeHeadline p{
+	margin-top:20px;
+	text-transform: uppercase;
+	color:#8fbf00;
+}
+
+.fridgeContentContainer{
+	width:100%;
+	clear:both;
+}
+
+.fridgeContentContainer .fridgeContent{
+	float:left;
+	margin:0 20px;
+	width: 100%;
+}
+
+.fridgeContentContainer .fridgeContent h2{
+	background:url(food.png) no-repeat;
+	color:#fff;
+	height: 32px;
+	text-align:center;
+}
+
+.fridgeContentContainer .fridgeContent.drinks h2{
+	background:url(drinks.png) no-repeat;
+
+}
+
+
+.fridgeContentContainer .fridgeContent li{
+	float:left;
+	padding: 10px;
+    width: 135px;
+}
+
+#posts-list h1 .post-heading.number{
+	font-size:50px;
+}
+
+#posts-list h2 .post-heading.name{
+	font-size:35px;
+	text-transform:uppercase;
+}
+
+#posts-list h3{
+	color:#8fbf00;
+	text-transform:uppercase;
+}
+
+.meta span{
+	font-style:normal;
+	text-transform:uppercase;
+}
+
+#posts-list p.article{
+	margin:0;
+	width: 145%;
+}
+
+#posts-list p.description{
+	margin:0;
+	font-size:10px;
+	text-transform:uppercase;
+}
+
+#posts-list .amount p.description{
+	font-size: 12px;
+	margin-top:10px;
+}
+
+#posts-list .amount{
+	float:left;
+}
+
+#posts-list input.amount{
+	width:20px;
+	margin:5px 0 0 60px;
+}
 
 
 

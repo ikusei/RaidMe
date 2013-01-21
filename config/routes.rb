@@ -1,6 +1,6 @@
 RaidMe::Application.routes.draw do
 
-  resources :fridge_friends
+  resources :fridge_friends, :only => [:index, :show]
 
   resources :product_arrangements
 
@@ -8,7 +8,7 @@ RaidMe::Application.routes.draw do
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }, :path_prefix => 'my'
 
-  resources :users
+  resources :users, :only => [:index, :show]
 
  
 

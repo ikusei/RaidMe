@@ -1,0 +1,18 @@
+<% for user in @users %>
+  <div class="user">
+    <p>
+    <% if user.first_name != current_user.first_name %>
+      <strong><%= user.first_name if user.first_name.present? %></strong>
+      <%= link_to "Add Friend", fridge_friends_path(:friend_id => user), :method => :post %>
+      <div class="clear"></div>
+    <% elsif user.email != current_user.email %>
+      <strong><%= user.email if user.email.present? %></strong>
+      <%= link_to "Add Friend", fridge_friends_path(:friend_id => user), :method => :post %>
+      <div class="clear"></div>
+    <% end %>
+    <% unless user.email.present? %>
+    Sorry you are the only registered Person at time!
+    <% end %>
+    </p>
+  </div>
+<% end %>

@@ -1,13 +1,17 @@
 <% if @fridge_friend.length != 0 %>
     <% for i in 0...@fridge_friend.length %> 
-      <% if @fridge_friend[i].acceptance == true && @fridge_friend[i].user_id == current_user.id %>
+      <% if @fridge_friend[i].user_id == current_user.id %>
         <% if @fridge_friend[i].friend.first_name.present? && @fridge_friend[i].friend.last_name.present? %>
           <%= link_to @fridge_friend[i].friend.first_name + " " + @fridge_friend[i].friend.last_name, user_path(@fridge_friend[i].friend.id.to_s) %>
         <% else %>
           <%= link_to @fridge_friend[i].friend.email, user_path(@fridge_friend[i].friend.id.to_s) %>
         <% end %>
+        <br />
+        <%= link_to "Find Friends", users_path %>
       <% end %>
     <% end %>
 <% else %>
   <p>Currently no Friends!</p>
+  <br />
+  <%= link_to "Find Friends", users_path %>
 <% end %>

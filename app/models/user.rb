@@ -15,7 +15,11 @@ class User < ActiveRecord::Base
   has_many :product_arrangements, :dependent => :destroy
   has_many :products
 
-  has_many :fridge_friends  
+  has_many :fridge_friends
+  has_many :friends, :through => :fridge_friends 
+
+  has_many :inverse_fridge_friends, :class_name => "FridgeFriend", :foreign_key => "friend_id"
+  has_many :inverse_friends, :through => :inverse_fridge_friends, :source => :user
 
   validates_uniqueness_of :email
   
@@ -52,26 +56,6 @@ class User < ActiveRecord::Base
       SELECT user_id, count(user_id) 
       FROM products 
       WHERE id IN ( #{product_ids_csv} ) 
-      GROUP BY user_id 
-      HAVING count(user_id) = #{no_of_products}
-    END_SQL
-
-    User.find( user_ids )
-  end
-
-  def self.find_products( wanted_products )
-    # ids have to be integers, have to be uniq, cannot be 0
-    product_ids = wanted_products.map(&:to_i).uniq.keep_if{|id| id > 0 }
-
-    no_of_products = product_ids.length
-
-    # turn into a string, separated by commas
-    product_ids_csv = product_ids.join(",")
-
-    user_ids = ProductArrangement.find_by_sql(<<-END_SQL).map{|r| r.user_id}
-      SELECT user_id, count(user_id) 
-      FROM product_arrangements 
-      WHERE product_id IN ( #{product_ids_csv} ) 
       GROUP BY user_id 
       HAVING count(user_id) = #{no_of_products}
     END_SQL

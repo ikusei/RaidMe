@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
   # GET /products/new
   # GET /products/new.json
   def new
-    @product = Product.new
+    @product = current_user.products.new
   end
 
   # GET /products/1/edit
@@ -31,11 +31,12 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.create!(params[:product])
+    @product = Product.new(params[:product])
 
-    respond_to do |format|
-        format.html { redirect_to edit_user_registration_path, notice: 'Product was successfully created.' }
-        format.js
+    if @product.save!
+      redirect_to edit_user_registration_path, notice: 'Product was successfully created.'
+    else
+      render 'new'
     end
   end
 

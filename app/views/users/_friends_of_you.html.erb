@@ -1,0 +1,19 @@
+
+<ul>
+  <% for user in @user.inverse_friends %>
+  <li>
+    <div class="friendImg">
+      <%= gravatar_for user %>
+    </div>
+    <% if user.first_name.present? %>
+    <div class="friendName">
+      <%= h user.first_name %>
+    </div>
+    <% else %>
+    <div class="friendName">
+      <%= h user.email %>
+    </div>
+    <% end %>
+  </li>
+  <% end %>
+</ul>

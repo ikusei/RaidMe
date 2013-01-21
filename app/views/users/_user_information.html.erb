@@ -1,9 +1,8 @@
-<h1 class="post-heading">
-	<%= @user.email %><br />
-	<%= @user.first_name %><br />
-	 <%= @user.last_name %> <%= @user.roomnumber %></h1>
+<h1 class="post-heading number"><%= @user.roomnumber if @user.roomnumber.present? %></h1>
+<h2 class="post-heading name"><%= @user.first_name if @user.first_name.present? %> <%= @user.last_name if @user.last_name.present? %></h2>
+<h3><%= @user.points %> Punkte</h3>
     <div class="meta">
       <span class="entry-date">Mitglied seit: <%= @user.created_at %></span>
     </div>
-<div>Punkte: <%= @user.points %></div>
+
 

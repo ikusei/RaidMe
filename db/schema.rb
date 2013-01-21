@@ -11,14 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218204113) do
+ActiveRecord::Schema.define(:version => 20130117080731) do
 
   create_table "fridge_friends", :force => true do |t|
     t.integer  "user_id"
     t.integer  "friend_id"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.boolean  "acceptance", :default => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "fridge_friends", ["user_id", "friend_id"], :name => "index_fridge_friends_on_user_id_and_friend_id"

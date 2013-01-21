@@ -17,7 +17,7 @@
 	</div>
 
 <!-- SUCHEN -->
-		<!--suchfeld--!>
+		<!--suchfeld-->
 	<%= form_tag(search_updatemap_path, :class => "form-wrapper cf") do %>
   		<%= text_field_tag :searchArticle, @storred_search_article, :placeholder => 'Search here for food and drinks...' %>
  		<%= button_tag "Search" %>
@@ -26,7 +26,7 @@
 
   <div class="suchergebnisse">
 		
-	<table> 
+	<table cellpadding="0"> 
 	  <thead><tr> 
 		<th>PRODUCT</th> 
 		<th>NAME</th> 
@@ -55,7 +55,7 @@
 	  	<% else %>
 	  	  <tr> 
 			<td><%= p.name if p.name.present?%></td>
-			<% if p.user.first_name.present? && p.user.last_name.present? && p.user.roomnumber.present? %> 
+			<% if p.user_id.present? %> 
 			<td><%= p.user.first_name %> <%= p.user.last_name %></td>
 			<td><%= p.user.roomnumber %></td> 
 			<% end %>
@@ -68,7 +68,7 @@
 	</div>
 						        		
 	<!-- ENDS suchen -->
-	</div>
+
   <div class="clearfix"></div>
   
 

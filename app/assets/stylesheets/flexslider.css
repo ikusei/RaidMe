@@ -81,7 +81,7 @@ html[xmlns] .slides {display: block;}
 	height: 37px; 
 	margin: -13px 0 0; 
 	display: block; 
-	background: url(slider-nav.png) no-repeat 0 0; 
+	background: url(../img/slider-nav.png) no-repeat 0 0; 
 	position: absolute; 
 	top: 50%; 
 	cursor: pointer; 
@@ -149,7 +149,7 @@ html[xmlns] .slides {display: block;}
 
 .shadow-slider{
 	height: 11px;
-	background: url(shadow-main.png) no-repeat top center;
+	background: url(../img/shadow-main.png) no-repeat top center;
 	margin-bottom: 70px;
 }
 

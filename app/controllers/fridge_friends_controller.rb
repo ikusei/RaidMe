@@ -21,7 +21,7 @@ class FridgeFriendsController < ApplicationController
     @fridge_friend = current_user.fridge_friends.build(:friend_id => params[:friend_id])
     @fridge_friend.save
       if @fridge_friend.save
-        redirect_to :back, notice: 'Fridge friend was successfully created.'
+        redirect_to user_path(@user), notice: 'Fridge friend was successfully created.'
       else
         redirect_to :back, :notice => 'creating Fridge Friend was not successful'
       end
@@ -41,7 +41,7 @@ class FridgeFriendsController < ApplicationController
   # DELETE /fridge_friends/1
   # DELETE /fridge_friends/1.json
   def destroy
-    @fridge_friend = FridgeFriend.find(params[:id])
+    @fridge_friend = current_user.fridge_friends.find(params[:id])
     if @fridge_friend.destroy
       redirect_to :back, notice: 'Fridge friend was successfully destroyed.'
     else

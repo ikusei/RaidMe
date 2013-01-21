@@ -1,23 +1,60 @@
 <!-- posts list -->
 <div id="posts-list">  
   <article class="format-standard">
-    
-    <div class="feature-image">
-      <%= gravatar_for @user, :size => 200 %>
+    <div class="personalProfile">
+      <div class="feature-image floatLeft">
+        <%= gravatar_for @user, :size => 200 %>
+      </div>
+      <div class="personalProfileInformation floatLeft">
+      <%= render "user_information" %>
+      </div>
+
+      <div class="friends floatRight">
+        <p class="friendsHeadline">
+          fridge friends >>
+        </p>
+        <div class="friend">
+  	      <%= render "friends" %>
+        </div>
+        <br/><br/>
+        <p class="friendsHeadline">
+          Befriended you >>
+        </p>
+        <div class="friend">
+          <%= render "friends_of_you" %>
+        </div>
+      </div>
     </div>
-    <%= render "user_information" %>
-    
     <div class="excerpt">
-  <br /><br />
-    Friends:
-	<%= render "friends" %>
-	<br /><br />
-	My Fridge Contains:
-	<br />
-	<%= render "own_products" %>
-	<br />
-	Reuqests:
-	<%= render "product_arrangement" %>
+      <div class="fridge">
+        <div class="fridgeHeadline">
+          <h2>My Fridge</h2>
+          <p><%= link_to "Bearbeiten >>", edit_product_path %></p>
+        </div>
+        <div class="fridgeContentContainer">
+          <div class="fridgeContent food">
+            <h2></h2>
+            <% if user_signed_in? %>
+              <%= render "own_products" %>
+            <% else %>
+              <%= render "other_products" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+	       
+      <div class="fridge">
+        <div class="fridgeHeadline">
+  	     <h2>Reuqests</h2>
+        </div>
+        <div class="fridgeContentContainer">
+          <div class="fridgeContent">
+            <% if user_signed_in? %>
+  	         <%= render "product_arrangement" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>             
   </article>
 </div>

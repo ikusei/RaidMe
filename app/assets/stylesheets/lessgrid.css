@@ -59,7 +59,7 @@ a img {border: 0;}
 }
 
 body {
-	font: 13px/1.5em Helvetica, Arial, sans-serif;
+	font: 13px/1.5em 'AftasansRegular',Helvetica, Arial, sans-serif;
 }
 
 .small, small {
@@ -90,12 +90,12 @@ body {
 }
 
 .wrapper{ 
-	width: 935px;	
+	width: 852px;	
 	padding-left: 68px;
 }
 
 #main{
-	width: 924px;
+	width: 922px;
 	padding-left: 0px;	
 }
 
@@ -178,7 +178,7 @@ px      68    160    252    344    436    528    620    712    */
 		width: 760px;
 		height: 11px;
 		margin-left: 0px;
-		background: url(shadow-main-tablet.png) no-repeat top center;
+		background: url(../img/shadow-main-tablet.png) no-repeat top center;
 	}
 	
 	/* masthead */
@@ -189,7 +189,7 @@ px      68    160    252    344    436    528    620    712    */
 	
 	/* slider */
 	
-	.shadow-slider{  background: url(shadow-main-tablet.png) no-repeat top center ; }
+	.shadow-slider{  background: url(../img/shadow-main-tablet.png) no-repeat top center ; }
 	
 	/* featured */
 	
@@ -330,7 +330,7 @@ px      68    160    252    */
 		width: 319px;
 		height: 11px;
 		margin-left: 0px;
-		background: url(shadow-main-mobile-por.png) no-repeat top center;
+		background: url(../img/shadow-main-mobile-por.png) no-repeat top center;
 	}
 	
 	/* masthead */
@@ -350,7 +350,7 @@ px      68    160    252    */
 	
 	/* slider */
 	
-	.shadow-slider{  background: url(shadow-main-mobile-por.png) no-repeat top center  ; }
+	.shadow-slider{  background: url(../img/shadow-main-mobile-por.png) no-repeat top center  ; }
 	
 	/* featured */
 	
@@ -470,7 +470,7 @@ px      68    160    252    344    436    */
 		width: 484px;
 		height: 11px;
 		margin-left: 0px;
-		background: url(shadow-main-mobile-lan.png) no-repeat top center;
+		background: url(../img/shadow-main-mobile-lan.png) no-repeat top center;
 	}
 	
 	.home-block-heading{
@@ -493,7 +493,7 @@ px      68    160    252    344    436    */
 	
 	/* slider */
 	
-	.shadow-slider{  background: url(shadow-main-mobile-lan.png) no-repeat top center  ; }
+	.shadow-slider{  background: url(../img/shadow-main-mobile-lan.png) no-repeat top center  ; }
 	
 	/* featured */
 	
