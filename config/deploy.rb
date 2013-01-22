@@ -33,6 +33,6 @@ after "deploy:update_code","deploy:dbyml_symlink"
 namespace :deploy do
   task :dbyml_symlink do
     rm #{release_path}/config/database.yml && 
-    ln -nfs #{deploy_to}/#{shared_dir}/config/database.yml #{release_path}/config/database.yml
+    ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml
   end
 end
