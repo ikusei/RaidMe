@@ -28,11 +28,3 @@ end
 
 before("bundle:install", "deploy:rm_mingw32")
 
-after "deploy:update_code","deploy:dbyml_symlink"
-
-namespace :deploy do
-  task :dbyml_symlink do
-    rm #{release_path}/config/database.yml && 
-    ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml
-  end
-end
