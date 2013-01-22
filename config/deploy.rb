@@ -28,11 +28,10 @@ end
 
 before("bundle:install", "deploy:rm_mingw32")
 
-after 'deploy:update_code', 'deploy:symlink_db'
-
 namespace :deploy do
-  desc "Symlinks the database.yml"
-  task :symlink_db, :roles => :app do
-    run "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
-  end
+  task :symlink, :except => { :no_release => true } do
+      run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    end
 end
+
+after 'deploy:update', 'db:symlink'
