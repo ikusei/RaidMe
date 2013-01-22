@@ -1,6 +1,6 @@
 load 'deploy'
 # Uncomment if you are using Rails' asset pipeline
-     load 'deploy/assets'
+
 load 'config/deploy' # remove this line to skip loading any of the default tasks
 
 task :display_free_disk_space do
@@ -14,3 +14,5 @@ namespace :deploy do
  end
  require "bundler/capistrano"
  after "deploy:update_code", "deploy:linkconfig"
+
+ load 'deploy/assets'

@@ -13,7 +13,3 @@ require "bundler/capistrano"
  role :app, "multimediaart.at"                   # This may be the same as your `Web` server
  role :db,  "multimediaart.at", :primary => true # This is where Rails migrations will run
  # role :db,  "your slave db-server here
-
-
-
-
