@@ -13,14 +13,9 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
-
-  task :copy_config do
-    rm #{release_path}/config/database.yml && 
-    ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml
-  end
-end
-
-
-after "deploy:update_code", "deploy:copy_config"
-
-
+   task :linkconfig do
+     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+   end
+ end
+ require "bundler/capistrano"
+ after "deploy:update_code", "deploy:linkconfig"
