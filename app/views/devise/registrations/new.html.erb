@@ -1,18 +1,27 @@
-<h2>Sign up</h2>
+<div class="infographic">
+	        	
+  <h2> sign up </h2></br>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+	  <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+	  <div id="label_email"><%= f.label :email %><br />
+	  <%= f.email_field :email, :id => "user_email", :maxlength => "30" %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+	  <div id="label"><%= f.label :password %><br />
+	  <%= f.password_field :password, :id => "user_password", :maxlength => "30" %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+	  <div id="label"><%= f.label :password_confirmation %><br />
+	  <%= f.password_field :password_confirmation, :id => "user_password_confirmation", :maxlength => "30" %></div>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+	  <div id="label"><%= f.submit "Sign up" %></div>
+	<% end %>
+	<br/>
+	<ul>
+	  <li><%= render "devise/shared/links" %></li>
+	</ul>
+</div>
 
-<%= render "devise/shared/links" %>
+</br><div class="trenner">
+  <%= image_tag('trennlinie.png') %>
+</div></br>

@@ -33,7 +33,7 @@
         <ul id="nav" class="sf-menu">
           <li><%= link_to (root_path) do %>Home<span class="subheader">welcome</span><% end %></li>
           <li><%= link_to (about_path) do %>About<span class="subheader">raid me</span><% end %></li>
-          <li><%= link_to 'Impressum', imprint_path %></li>
+          <li><%= link_to (imprint_path) do %>Impressum<span class="subheader">contact & facts</span><% end %></li>
           <% if user_signed_in? %>
           <li><%= link_to(new_product_path) do  %>Add Product<span class="subheader">are you hungry?</span><% end %></li>
           <% end %>
