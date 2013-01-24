@@ -33,7 +33,7 @@ body{
 	background: #ececec url(main-pattern.png);
 	color: #333333;
 	word-wrap: break-word;
-	font-family:'AftasansRegular'; Helvetica;
+	font-family:'AftasansRegular', Helvetica;
 }
 
 body p{
