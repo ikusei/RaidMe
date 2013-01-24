@@ -7,10 +7,14 @@
     </div>
     <% if fridge_friend.friend.first_name.present? %>
       <p class="friendName"><%= link_to fridge_friend.friend.first_name, user_path(fridge_friend.friend_id) %></p>
-      (<%= link_to "remove", fridge_friend, :method => :delete %>)
+      <% if fridge_friend.user_id == current_user.id %>
+        (<%= link_to "remove", fridge_friend, :method => :delete %>)
+      <% end %>
     <% else %>
       <p class="friendName"><%= link_to fridge_friend.friend.email, user_path(fridge_friend.friend_id) %></p>
-      (<%= link_to "remove", fridge_friend, :method => :delete %>)
+      <% if fridge_friend.user_id == current_user.id %>
+        (<%= link_to "remove", fridge_friend, :method => :delete %>)
+      <% end %>
     <% end %>
   </li>
   <% end %>

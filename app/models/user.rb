@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :product_arrangements, :dependent => :destroy
-  has_many :products
+  has_many :products, :dependent => :destroy
 
   has_many :fridge_friends
   has_many :friends, :through => :fridge_friends 

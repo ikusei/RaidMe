@@ -54,6 +54,11 @@ body a:hover{
 	color: #90bd24;
 }
 
+#notifications {
+	display: none;
+	height: 0;
+}
+
 #logo{
 	display: block;
 	padding-top: 97px;
