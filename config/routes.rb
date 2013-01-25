@@ -1,6 +1,6 @@
 RaidMe::Application.routes.draw do
 
-  resources :fridge_friends, :only => [:index, :show]
+  resources :fridge_friends, :only => [:index, :show, :create, :destroy]
 
   resources :product_arrangements
 

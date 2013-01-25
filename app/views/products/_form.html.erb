@@ -1,3 +1,7 @@
+<div class="infographic">
+            
+  <h2> add new product </h2></br>
+
 <%= form_for ([@user, @product]) do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
@@ -24,3 +28,12 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<%= link_to 'Back', products_path %>
+</div>
+
+</br></br>
+      <div class="trenner">
+            <%= image_tag("trennlinie.png") %>
+      </div>
+      </br></br></br>

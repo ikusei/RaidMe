@@ -1,13 +1,20 @@
+<div class="friendpool">
+<div class="friendpool_headline">
+  <h2>All Users</h2>
+</div>
 <% for user in @users %>
   <div class="user">
+    
     <p>
     <% if user.first_name != current_user.first_name %>
-      <strong><%= user.first_name if user.first_name.present? %></strong>
-      <%= link_to "Add Friend", fridge_friends_path(:friend_id => user), :method => :post %>
+      <figure><%= gravatar_for user, :size=>100 %>
+      <figcaption><%= user.first_name if user.first_name.present? %></figcaption>
+      <%= link_to "Add Friend", fridge_friends_path(:friend_id => user), :method => :post %></figure>
       <div class="clear"></div>
     <% elsif user.email != current_user.email %>
-      <strong><%= user.email if user.email.present? %></strong>
-      <%= link_to "Add Friend", fridge_friends_path(:friend_id => user), :method => :post %>
+      <figure><%= gravatar_for user, :size=>100 %>
+      <figcaption><%= user.email if user.email.present? %></figcaption>
+      <%= link_to "Add Friend", fridge_friends_path(:friend_id => user), :method => :post %></figure>
       <div class="clear"></div>
     <% end %>
     <% unless user.email.present? %>
@@ -16,3 +23,4 @@
     </p>
   </div>
 <% end %>
+</div>

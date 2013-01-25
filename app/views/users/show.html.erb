@@ -11,7 +11,7 @@
 
       <div class="friends floatRight">
         <p class="friendsHeadline">
-          fridge friends >>
+          <%= link_to "fridge friends >>", fridge_friends_path %> 
         </p>
         <div class="friend">
   	      <%= render "friends" %>
@@ -29,7 +29,7 @@
       <div class="fridge">
         <div class="fridgeHeadline">
           <h2>My Fridge</h2>
-          <p><%= link_to "Hinzufügen >>", new_product_path %></p>
+          <p><%= link_to "add Product >>", new_product_path %></p>
         </div>
         <div class="fridgeContentContainer">
           <div class="fridgeContent food">

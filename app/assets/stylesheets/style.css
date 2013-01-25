@@ -552,7 +552,7 @@ a.fb_button, a.fb_button_rtl, .fb_button, .fb_button_rtl {
 	position: relative;
 	float: left;
 	width: 252px;
-	margin-left: 100px;
+	margin-left: 98px;
 	padding-right: 50px;
 	margin-bottom: 21px;
 }
@@ -892,7 +892,7 @@ overflow:hidden;}
 }
 
 .friend .friendName{
-	margin:15px 0 0 5px;
+	margin:5px 0 0 60px;
 	text-transform:uppercase;
 }
 
@@ -1033,3 +1033,31 @@ overflow:hidden;}
 	padding-bottom: 30px;
 	}
 	
+/* FRIDGE-FRIENDS ------------------------------------------------------------*/
+	
+
+.fridgefriends {
+	padding-left:98px;
+	padding-top: 30px;
+	}
+
+.friendpool {
+	margin-left: 25px;
+	}
+
+.friendpool_headline {
+	padding-left: 27px;
+	padding-top: 30px;
+	}
+	
+figure {
+	float: left;
+	padding-top: 15px;
+	padding-left: 25px;
+	padding-bottom: 15px;
+	}
+	
+figcaption {
+	padding-top: 5px;
+	font-size: 14px;
+	}
