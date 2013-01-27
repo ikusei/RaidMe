@@ -1,6 +1,6 @@
 
 <% if @product.present? %>
-  <% Product.all.each do |product| %>
+  <% @product.each do |product| %>
     <% if product.user_id == current_user.id && @user.id == current_user.id %>
     <ul class="foodList">
       <li>
@@ -19,17 +19,19 @@
 	  	    <%= product.name if product.name.present? %>
 	  	    <% if @product_arrangement.count > 0 %>
 	  	      <% @product_arrangement.each do |pa| %>
-	  	        <% if pa.acceptance == nil && pa.product_id == product.id && pa.interest_id == @user.id %>
+	  	        <% if pa.acceptance == nil && pa.product_id == product.id && pa.interest_id == pa.product.user_id %>
                     <strong>reserviert </strong>
                 <% end %>
-                <% if pa.acceptance == true && pa.product_id == product.id && pa.interest_id == @user.id %>
+                <% if (pa.acceptance == true) && (pa.product_id == product.id) && ((pa.interest_id == @user.id) || (pa.interest_id == current_user.id)) %>
                   <strong>schon vergeben</strong>
                 <% end %>
-                <% if current_user.id != @user.id && pa.product_id != product.id && pa.interest_id != @user.id %>
+                <% if pa.product_id != product.id %>
+                  <% if pa.interest_id != pa.product.user_id %>
 				  <% if current_user.points >= -5 %>
 					| <%= link_to " Send Request", product_arrangements_path(:user_id => current_user.id, :interest_id => @user.id, :product_id => product.id), :method => :post %>
 				  <% else %>
 				    <h3>Sorry, you can not order the product because you have got no points.</h3>
+				  <% end %>
 				  <% end %>
 				<% end %>
 			  <% end %>

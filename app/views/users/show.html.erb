@@ -29,7 +29,9 @@
       <div class="fridge">
         <div class="fridgeHeadline">
           <h2>My Fridge</h2>
-          <p><%= link_to "add Product >>", new_product_path %></p>
+          <% if user_signed_in? && current_user.id == @user.id %>
+            <p><%= link_to "add Product >>", new_product_path %></p>
+          <% end %>
         </div>
         <div class="fridgeContentContainer">
           <div class="fridgeContent food">

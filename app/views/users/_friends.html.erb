@@ -7,7 +7,7 @@
     </div>
     <% if fridge_friend.friend.first_name.present? %>
       <p class="friendName"><%= link_to fridge_friend.friend.first_name, user_path(fridge_friend.friend_id) %>
-      <% if fridge_friend.user_id == current_user.id %>
+      <% if user_signed_in? && fridge_friend.user_id == current_user.id %>
         (<%= link_to "remove", fridge_friend, :method => :delete %>)
       <% end %></p>
     <% else %>
