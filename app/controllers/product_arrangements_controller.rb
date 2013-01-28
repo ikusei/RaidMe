@@ -11,10 +11,10 @@ class ProductArrangementsController < ActionController::Base
   end
 
   def create
-    @product_arrangement = current_user.product_arrangements.build(:product_id => params[:product_id], :interest_id => params[:interest_id])
+    @product_arrangement = current_user.product_arrangements.build(:product_id => params[:product_id], :interest_id => params[:interest_id], :acceptance => params[:acceptance])
     @product_arrangement.save
 
-      if @product_arrangement.save && current_user.points > -5
+      if @product_arrangement.save && current_user.points > -20
         current_user.points -= 1
         current_user.update_attribute(:points, current_user.points)
         redirect_to :back, notice: 'Product Request was successfully created.'

@@ -944,9 +944,9 @@ overflow:hidden;}
 
 
 .fridgeContentContainer .fridgeContent li{
-	float:left;
+	
 	padding: 10px;
-    width: 135px;
+    width: 100%;
 }
 
 #posts-list h1 .post-heading.number{

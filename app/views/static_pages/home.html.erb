@@ -47,7 +47,9 @@
 			  <td><%= p.user.first_name %> <%= p.user.last_name %></td>
 			  <td><%= p.user.roomnumber %></td> 
 			  <% end %>
+			  <% if user_signed_in? %>
 			  <td><%= link_to "GET IT", user_path(p.user_id) %></td> 
+			  <% end %>
 			</tr>
 	  	  <% else %>
 	  	    <p> No products </p>
@@ -59,7 +61,9 @@
 			<td><%= p.user.first_name %> <%= p.user.last_name %></td>
 			<td><%= p.user.roomnumber %></td> 
 			<% end %>
+			<% if user_signed_in? %>
 			<td><%= link_to "GET IT", user_path(p.user_id) %></td> 
+			<% end %>
 		  </tr>
 	  	<% end %>
 	  <% end %>

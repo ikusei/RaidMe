@@ -13,4 +13,6 @@ module UsersHelper
 	def get_arrangement
 	  return ProductArrangement.find(:first, :conditions => { :user_id => current_user.id })
 	end
+
+	
 end

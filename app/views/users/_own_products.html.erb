@@ -1,46 +1,32 @@
 
 <% if @product.present? %>
-  <% @product.each do |product| %>
-    <% if product.user_id == current_user.id && @user.id == current_user.id %>
-    <ul class="foodList">
-      <li>
+  <ul class="foodList">
+  	<% @product.each do |product| %>
+    <li>
+      <% if product.user_id == current_user.id && @user.id == current_user.id %>
 	  	<p class="article">
 	  	<%= product.name %>
 	  	<%= link_to " destroy article", product, :method => :delete %>
 		</p>
-	  </li>
-	</ul>
-	<% end %>
-	
-	<% if product.user_id != current_user.id && @user.id != current_user.id && product.user_id == @user.id %>
-	  <ul class="foodList">
-        <li>
-	  	  <p class="article">
-	  	    <%= product.name if product.name.present? %>
+	  <% else %>
+	    <p class="article">
+	  	  <%= product.name if product.name.present? %>
 	  	    <% if @product_arrangement.count > 0 %>
 	  	      <% @product_arrangement.each do |pa| %>
-	  	        <% if pa.acceptance == nil && pa.product_id == product.id && pa.interest_id == pa.product.user_id %>
+	  	        <% if pa.acceptance == false && pa.product_id == product.id && pa.interest_id == pa.product.user_id %>
                     <strong>reserviert </strong>
-                <% end %>
-                <% if (pa.acceptance == true) && (pa.product_id == product.id) && ((pa.interest_id == @user.id) || (pa.interest_id == current_user.id)) %>
+                <% elsif (pa.acceptance == true) && (pa.product_id == product.id) && pa.interest_id == pa.product.user_id %>
                   <strong>schon vergeben</strong>
-                <% end %>
-                <% if pa.product_id != product.id %>
-                  <% if pa.interest_id != pa.product.user_id %>
-				  <% if current_user.points >= -5 %>
-					| <%= link_to " Send Request", product_arrangements_path(:user_id => current_user.id, :interest_id => @user.id, :product_id => product.id), :method => :post %>
-				  <% else %>
-				    <h3>Sorry, you can not order the product because you have got no points.</h3>
-				  <% end %>
-				  <% end %>
+                <% elsif pa.product_id != product.id && (pa.acceptance != false || pa.acceptance != true) %>
+				  | <%= link_to "send Request", product_arrangements_path(:user_id => current_user.id, :interest_id => @user.id, :product_id => product.id, :acceptance => "false"), :method => :post %>
 				<% end %>
 			  <% end %>
 	  	    <% else %>
-	  	      | <%= link_to "send Request", product_arrangements_path(:user_id => current_user.id, :interest_id => @user.id, :product_id => product.id), :method => :post %>
+	  	      | <%= link_to "send Request", product_arrangements_path(:user_id => current_user.id, :interest_id => @user.id, :product_id => product.id, :acceptance => "false"), :method => :post %>
 	  	    <% end %>
-		  </p>
-	    </li>
-	  </ul>
+		</p>
+	  <% end %>
+	</li>
 	<% end %>
-  <% end %>
+  </ul>
 <% end %>

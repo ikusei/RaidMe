@@ -19,7 +19,7 @@ class UsersController < ApplicationController
    @user = User.find(params[:id])
    @product = Product.where(:user_id => @user)
    @fridge_friend = FridgeFriend.find(:all, :limit => 10)
-   @product_arrangement = ProductArrangement.find(:all, :limit => 10)
+   @product_arrangement = ProductArrangement.find( :all )
   end
 
 
