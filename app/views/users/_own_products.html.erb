@@ -1,32 +1,14 @@
-
 <% if @product.present? %>
   <ul class="foodList">
-  	<% @product.each do |product| %>
     <li>
-      <% if product.user_id == current_user.id && @user.id == current_user.id %>
-	  	<p class="article">
-	  	<%= product.name %>
-	  	<%= link_to " destroy article", product, :method => :delete %>
-		</p>
-	  <% else %>
-	    <p class="article">
-	  	  <%= product.name if product.name.present? %>
-	  	    <% if @product_arrangement.count > 0 %>
-	  	      <% @product_arrangement.each do |pa| %>
-	  	        <% if pa.acceptance == false && pa.product_id == product.id && pa.interest_id == pa.product.user_id %>
-                    <strong>reserviert </strong>
-                <% elsif (pa.acceptance == true) && (pa.product_id == product.id) && pa.interest_id == pa.product.user_id %>
-                  <strong>schon vergeben</strong>
-                <% elsif pa.product_id != product.id && (pa.acceptance != false || pa.acceptance != true) %>
-				  | <%= link_to "send Request", product_arrangements_path(:user_id => current_user.id, :interest_id => @user.id, :product_id => product.id, :acceptance => "false"), :method => :post %>
-				<% end %>
-			  <% end %>
-	  	    <% else %>
-	  	      | <%= link_to "send Request", product_arrangements_path(:user_id => current_user.id, :interest_id => @user.id, :product_id => product.id, :acceptance => "false"), :method => :post %>
-	  	    <% end %>
-		</p>
+      <% @product.each do |product| %>
+        
+	  	  <p class="article">
+	  		<%= product.name %>
+	  		<%= link_to " destroy article", product, :method => :delete %>
+		  </p>
+	    
 	  <% end %>
 	</li>
-	<% end %>
   </ul>
 <% end %>

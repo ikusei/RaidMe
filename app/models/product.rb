@@ -1,9 +1,9 @@
 class Product < ActiveRecord::Base
-  attr_accessible :datum, :marke, :name, :ort, :user_id
+  attr_accessible :datum, :name, :user_id
 
   
   belongs_to :user
 
-  has_many :product_arrangements, :dependent => :destroy
+  has_one :product_arrangements, :dependent => :destroy
 
 end

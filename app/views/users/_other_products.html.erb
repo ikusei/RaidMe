@@ -1,13 +1,36 @@
-<% if @product.present? %>
-  <% Product.all.each do |product| %>
-    <% if product.user_id == @user.id %>
-    <ul class="foodList">
-      <li>
-	  	<p class="article">
-	  	<%= product.name %>
-		</p>
-	  </li>
-	</ul>
-	<% end %>
+
+<% if @product_arrangement.length != 0 %>
+  <ul>
+  <% for i in 0...@product_arrangement.length %>
+    <li>
+      <p>
+      <%= @product_arrangement[i].product.name %>
+      <% if @product_arrangement[i].acceptance == false %>
+        <strong>reserviert</strong>
+      <% elsif @product_arrangement[i].acceptance == true %>
+        <strong>vergeben</strong>
+      <% end %>      
+      </p>
+    </li>
   <% end %>
+  <% @product.each do |p| %>
+    <li>
+      <p>
+      <% if p.status == false %>
+      <%= p.name %>
+      | <%= link_to 'Send Request', product_arrangements_path(:interest_id => @user.id, :product_id => p.id, :user_id => current_user.id, :acceptance => "false"), :method => :post %>
+      <% end %>
+  	  </p>
+  	</li>
+  <% end %>
+<% else %>
+  <% @product.each do |product| %>
+    <li>
+      <p>
+      <%= product.name %>
+      | <%= link_to 'Send Request', product_arrangements_path(:interest_id => @user.id, :product_id => product.id, :user_id => current_user.id, :acceptance => "false"), :method => :post %>
+  	  </p>
+  	</li>
+  <% end %>
+  </ul>
 <% end %>

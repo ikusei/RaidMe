@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 # Barbara Huber (1010601010) 
 # FH Salzburg | MMT-B2012
 
+  
+
   def add_friend
 
   end
