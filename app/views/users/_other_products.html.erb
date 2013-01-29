@@ -14,14 +14,14 @@
     </li>
   <% end %>
   <% @product.each do |p| %>
+    <% if p.status == false %>
     <li>
       <p>
-      <% if p.status == false %>
       <%= p.name %>
       | <%= link_to 'Send Request', product_arrangements_path(:interest_id => @user.id, :product_id => p.id, :user_id => current_user.id, :acceptance => "false"), :method => :post %>
-      <% end %>
-  	  </p>
+      </p>
   	</li>
+  	<% end %>
   <% end %>
 <% else %>
   <% @product.each do |product| %>
