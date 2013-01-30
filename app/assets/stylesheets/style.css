@@ -591,6 +591,13 @@ a.fb_button, a.fb_button_rtl, .fb_button, .fb_button_rtl {
 
 
 /* Form wrapper styling */
+.form {
+	display: none;
+}
+
+.form.shown{
+	display: inline;
+}
 .form-wrapper {
     width: 655px;
     padding: 15px;

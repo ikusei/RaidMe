@@ -26,4 +26,9 @@ $(document).ready(function() {
 	$(".wrapper nav ul#nav").children("li").on("mouseout", function(){
 	  $(".wrapper nav ul#nav").children("li").removeClass("current-menu-item");
 	});
+
+	$("#search").bind("click", function(){
+	  	$(".form").addClass("shown");
+	  
+	});
 });	

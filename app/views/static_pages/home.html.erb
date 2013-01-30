@@ -3,12 +3,15 @@
 	        	<!-- suchen oder geben -->
 	<div class="featured">
 		<figure>
-			<%= link_to image_tag("suchen.jpg", :alt => "SUCHEN"), root_path , :class => "thumb" %>
+			<a href="#" class="thumb" id="search"><%= image_tag("suchen.jpg", :alt => "SUCHEN") %></a>
 		</figure>
 	
 		<figure>
-			
+		  <% if user_signed_in? %>
 			<%= link_to image_tag("geben.jpg", :alt => "GEBEN"), new_product_path , :class => "thumb" %>
+		  <% else %>
+		    <%= link_to image_tag("geben.jpg", :alt => "GEBEN"), root_path, :confirm => "You have to be logged in to be able to give products", :class => "thumb" %>
+		  <% end %>
 		</figure>
 					        		
 	<!-- ENDS suchen oder geben -->
@@ -19,10 +22,12 @@
 
 <!-- SUCHEN -->
 		<!--suchfeld-->
+	<div class="form">
 	<%= form_tag(search_updatemap_path, :class => "form-wrapper cf") do %>
   		<%= text_field_tag :searchArticle, @storred_search_article, :placeholder => 'Search here for food and drinks...' %>
  		<%= button_tag "Search" %>
 	<% end %>
+	</div>
 <!-- tabelle suchergebnisse -->
 
   <div class="suchergebnisse">
