@@ -2,7 +2,7 @@
   <% if @product_arrangement.present? %>
    
     <% ProductArrangement.all.each do |pa| %>
-      <% if current_user.id == pa.user_id && pa.acceptance == false %>
+      <% if current_user.id == pa.user_id && pa.acceptance == false && pa.product.present? %>
        <h4>Products you ordered at following persons: </h4>
         <p><%= pa.product.name if pa.product.name.present? %>, 
         <% if pa.interest.first_name.present? && pa.interest.last_name.present? %>
@@ -21,8 +21,9 @@
   <% if @product_arrangement.length != 0 %>
     
     <% for i in 0...@product_arrangement.length %>
-      <% if current_user.id == @product_arrangement[i].interest_id && @product_arrangement[i].acceptance == false %>
-      <p>following persons ordered the products: </p>
+
+      <% if current_user.id == @product_arrangement[i].interest_id && @product_arrangement[i].acceptance == false && @product_arrangement[i].product.present? %>
+      <h4>following persons ordered the products: </h4>
         <%= @product_arrangement[i].product.name if @product_arrangement[i].product.name.present? %>, <%= @product_arrangement[i].user.first_name if @product_arrangement[i].user.first_name.present? %> <%= @product_arrangement[i].user.last_name if @product_arrangement[i].user.first_name.present? %>
         <p>You can accept the Request <%= render 'users/product_arrangement_update_form', :product_arrangement => @product_arrangement[i] %></p><p>or delete</p><%= render 'users/product_arrangement_delete_form', :product_arrangement => @product_arrangement[i] %>
       <% end %>

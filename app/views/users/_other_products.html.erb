@@ -1,17 +1,21 @@
-
+<% if @product.present? %>
 <% if @product_arrangement.length != 0 %>
   <ul>
   <% for i in 0...@product_arrangement.length %>
-    <li>
-      <p>
-      <%= @product_arrangement[i].product.name %>
-      <% if @product_arrangement[i].acceptance == false %>
+    <%= @product_arrangement[i].product.name if @product_arrangement[i].product.present? %>
+    <% if @product_arrangement[i].acceptance == false && @product_arrangement[i].product.present? %>
+      <li>
+        <p>
         <strong>reserviert</strong>
-      <% elsif @product_arrangement[i].acceptance == true %>
+        </p>
+      </li>
+    <% elsif @product_arrangement[i].acceptance == true && @product_arrangement[i].product.present? %>
+      <li>
+        <p>
         <strong>vergeben</strong>
-      <% end %>      
-      </p>
-    </li>
+        </p>
+      </li>
+    <% end %>      
   <% end %>
   <% @product.each do |p| %>
     <% if p.status == false %>
@@ -33,4 +37,5 @@
   	</li>
   <% end %>
   </ul>
+<% end %>
 <% end %>

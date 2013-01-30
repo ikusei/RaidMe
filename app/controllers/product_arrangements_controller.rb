@@ -1,15 +1,5 @@
 class ProductArrangementsController < ActionController::Base
-  def new
-    @interest = User.find(params[:id])
-    @user = current_user.id
-    @product = Product.find(params[:id])
-    @product_arrangement = ProductArrangement.new
-  end
-
-  def edit
-    @product_arrangement = ProductArrangement.find(params[:id])
-  end
-
+  
   def create
     @product_arrangement = current_user.product_arrangements.build(:product_id => params[:product_id], :interest_id => params[:interest_id], :acceptance => params[:acceptance])
     @product_arrangement.save

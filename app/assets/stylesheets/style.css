@@ -366,6 +366,7 @@ nav a{
     padding-right: 10px;
     padding-bottom: 6px;
     background: url(login_bg.png) repeat scroll 0% 0% transparent;
+    line-height: 18px;
 }
 
 
@@ -414,8 +415,8 @@ input.text, textarea, select {
 
 #login .content .fb_button {
     position: absolute;
-    right: 28px;
-    bottom: 5px;
+    right: 12px;
+    bottom: 11px;
 }
 .hover2 a:hover {
     color: rgb(33, 37, 37) !important;
@@ -484,7 +485,7 @@ a.fb_button, a.fb_button_rtl, .fb_button, .fb_button_rtl {
 	display: block;
 	width: 850px;
 	float: left;
-	
+	line-height: 1;
 	background: #f5f5f5;
 	
 	-webkit-box-shadow: 0px 0px 4px rgba(0,0,0,.1); 
