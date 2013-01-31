@@ -1,41 +1,44 @@
-<% if @product.present? %>
-<% if @product_arrangement.length != 0 %>
-  <ul>
-  <% for i in 0...@product_arrangement.length %>
-    <%= @product_arrangement[i].product.name if @product_arrangement[i].product.present? %>
-    <% if @product_arrangement[i].acceptance == false && @product_arrangement[i].product.present? %>
+<% if be_friend == true %>
+  <% if @product.present? %>
+    <% if @product_arrangement.length != 0 %>
+    <ul>
+    <% for i in 0...@product_arrangement.length %>
+      <%= @product_arrangement[i].product.name if @product_arrangement[i].product.present? %>
+      <% if @product_arrangement[i].acceptance == false && @product_arrangement[i].product.present? %>
+        <li>
+          <p>
+          <strong>reserviert</strong>
+          </p>
+        </li>
+      <% elsif @product_arrangement[i].acceptance == true && @product_arrangement[i].product.present? %>
+        <li>
+          <p>
+          <strong>vergeben</strong>
+          </p>
+        </li>
+      <% end %>      
+    <% end %>
+    <% @product.each do |p| %>
+      <% if p.status == false %>
       <li>
         <p>
-        <strong>reserviert</strong>
+        <%= p.name %>
+        | <%= link_to 'Send Request', product_arrangements_path(:interest_id => @user.id, :product_id => p.id, :user_id => current_user.id, :acceptance => "false"), :method => :post %>
         </p>
-      </li>
-    <% elsif @product_arrangement[i].acceptance == true && @product_arrangement[i].product.present? %>
+    	</li>
+    	<% end %>
+    <% end %>
+    <% else %>
+    <% @product.each do |product| %>
       <li>
         <p>
-        <strong>vergeben</strong>
-        </p>
-      </li>
-    <% end %>      
+        <%= product.name %>
+        | <%= link_to 'Send Request', product_arrangements_path(:interest_id => @user.id, :product_id => product.id, :user_id => current_user.id, :acceptance => "false"), :method => :post %>
+    	  </p>
+    	</li>
+    <% end %>
+    </ul>
+    <% end %>
   <% end %>
-  <% @product.each do |p| %>
-    <% if p.status == false %>
-    <li>
-      <p>
-      <%= p.name %>
-      | <%= link_to 'Send Request', product_arrangements_path(:interest_id => @user.id, :product_id => p.id, :user_id => current_user.id, :acceptance => "false"), :method => :post %>
-      </p>
-  	</li>
-  	<% end %>
-  <% end %>
-<% else %>
-  <% @product.each do |product| %>
-    <li>
-      <p>
-      <%= product.name %>
-      | <%= link_to 'Send Request', product_arrangements_path(:interest_id => @user.id, :product_id => product.id, :user_id => current_user.id, :acceptance => "false"), :method => :post %>
-  	  </p>
-  	</li>
-  <% end %>
-  </ul>
 <% end %>
-<% end %>
+ 

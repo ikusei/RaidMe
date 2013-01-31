@@ -14,5 +14,13 @@ module UsersHelper
 	  return ProductArrangement.find(:first, :conditions => { :user_id => current_user.id })
 	end
 
-	
+	def be_friend
+	  friend = FridgeFriend.find(:first, :conditions => "user_id = '#{current_user.id}' AND friend_id = '#{@user.id}' ")
+	  befriended = FridgeFriend.find(:first, :conditions => "friend_id = '#{current_user.id}' AND user_id = '#{@user.id}' ")
+	  if friend.present? && befriended.present?
+	  	return true;
+	  else
+	  	return false;
+	  end
+	end
 end
